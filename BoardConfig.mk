@@ -36,7 +36,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/tiare
 TARGET_KERNEL_CONFIG := tiare_defconfig
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8937
+#TARGET_BOARD_PLATFORM := msm8937
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno308
 
 # Audio
@@ -88,7 +88,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # QCOM
-BOARD_USES_QCOM_HARDWARE := true
+#BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
