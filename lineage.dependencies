@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "android_kernel_xiaomi_tiare",
+    "target_path": "kernel/xiaomi/tiare"
+  }
+]
