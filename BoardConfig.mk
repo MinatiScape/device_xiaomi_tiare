@@ -10,7 +10,7 @@ DEVICE_PATH := device/xiaomi/tiare
 
 # Architecture
 TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
@@ -28,13 +28,13 @@ TARGET_HW_DISK_ENCRYPTION := true
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom androidboot.memcg=true user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 NEED_KERNEL_MODULE_SYSTEM := true
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/tiare
 TARGET_KERNEL_CONFIG := tiare_defconfig
 
@@ -87,6 +87,11 @@ TARGET_USES_MKE2FS := true
 
 TARGET_COPY_OUT_VENDOR := vendor
 
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /vendor/dsp:/dsp \
+    /vendor/firmware_mnt:/firmware \
+    /mnt/vendor/persist:/persist
+
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
@@ -104,16 +109,17 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_RIL_VARIANT := caf
 
 # Sepolicy
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
+#BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
 
 # Treble
-BOARD_VNDK_RUNTIME_DISABLE := true
+#BOARD_VNDK_RUNTIME_DISABLE := true
 BOARD_VNDK_VERSION := current
-PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
+PRODUCT_EXTRA_VNDK_VERSIONS := 27
+#PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Inherit from the proprietary version
--include vendor/xiaomi/tiare/BoardConfigVendor.mk
+#-include vendor/xiaomi/tiare/BoardConfigVendor.mk

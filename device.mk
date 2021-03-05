@@ -7,6 +7,14 @@
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/tiare/tiare-vendor.mk)
 
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 27
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
@@ -84,11 +92,3 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-
-# VNDK
-PRODUCT_PACKAGES += \
-    vndk_package
-
-# VNDK-SP
-PRODUCT_PACKAGES += \
-    vndk-sp
