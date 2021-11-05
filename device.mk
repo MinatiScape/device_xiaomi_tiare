@@ -5,7 +5,7 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/tiare/tiare-vendor.mk)
+# $(call inherit-product-if-exists, vendor/xiaomi/tiare/tiare-vendor.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
