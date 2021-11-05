@@ -63,8 +63,8 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # Power
-PRODUCT_PACKAGES += \
-    power.qcom
+# PRODUCT_PACKAGES += \
+#    power.qcom
 
 # QTI
 PRODUCT_COPY_FILES += \
